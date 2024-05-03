@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" verbose="1">
+    <test name="WintelAppTest">
+        <groups>
+            <dependencies>
+                <group depends-on="login_first" name="buyPhoneNumberBeforeLogin"></group>
+                <group depends-on="buyPhoneNumberBeforeLogin" name="login"></group>
+                <group depends-on="login" name="buyPhoneNumberAfterLogin"></group>
+                <group depends-on="buyPhoneNumberAfterLogin" name="buyPackage"></group>
+                <group depends-on="buyPackage" name="top_up"></group>
+                <group depends-on="top_up" name="buyVoucher"></group>
+            </dependencies>
+        </groups>
+        <packages>
+            <package name="com.qaauto.wintelapp.testcase"/>
+        </packages>
+    </test>
+</suite>
